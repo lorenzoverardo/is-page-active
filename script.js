@@ -4,11 +4,13 @@ $(function () {
 		window.isActive = true;
 		updatePageStatus();
 		updatePageTitle();
+		updateFavicon();
 	});
 	$(window).blur(function () {
 		window.isActive = false;
 		updatePageStatus();
 		updatePageTitle();
+		updateFavicon();
 	});
 	updatePageStatus();
 });
@@ -33,4 +35,11 @@ function updatePageStatus() {
 function updatePageTitle() {
 	var newTitle = window.isActive ? "Active 🙂" : "Inactive 🙁";
 	$("title").text(newTitle);
+}
+
+function updateFavicon() {
+	var favicon = window.isActive
+		? "favicons/green.png"
+		: "favicons/red.png";
+	$('link[rel="icon"]').attr("href", favicon);
 }
