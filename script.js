@@ -1,4 +1,12 @@
 $(function () {
+	$("#popupBtn").click(function () {
+		$("#overlay, #popupWindow").fadeIn();
+	});
+
+	$("#closeBtn, #overlay").click(function () {
+		$("#overlay, #popupWindow").fadeOut();
+	});
+
 	window.isActive = true;
 	$(window).focus(function () {
 		window.isActive = true;
@@ -38,8 +46,6 @@ function updatePageTitle() {
 }
 
 function updateFavicon() {
-	var favicon = window.isActive
-		? "favicons/green.png"
-		: "favicons/red.png";
+	var favicon = window.isActive ? "favicons/green.png" : "favicons/red.png";
 	$('link[rel="icon"]').attr("href", favicon);
 }
